@@ -1,13 +1,83 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  scroll-behavior: smooth;
+}
+:root {
+  --blue-gradient: linear-gradient(
+    157.81deg,
+    #def9fa -43.27%,
+    #bef3f5 -21.24%,
+    #9dedf0 12.19%,
+    #7de7eb 29.82%,
+    #5ce1e6 51.94%,
+    #33bbcf 90.29%
+  );
+
+  --black-gradient: linear-gradient(
+    144.39deg,
+    #ffffff -278.56%,
+    #6d6d6d -78.47%,
+    #11101d 91.61%
+  );
+  --gray-gradient: linear-gradient(
+    150deg,
+    rgba(225, 215, 215, 0.893) -341.94%,
+    #4b4b4e 70.11%
+  );
+  --black-gradient-2: linear-gradient(
+    -168.39deg,
+    #e7d6d6 -278.56%,
+    #4d4545 -78.47%,
+    #373d3e 91.61%
+  );
+  --secindary-color: #00f6ff;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.button__bg {
+  background: var(--blue-gradient);
+  border: 1px solid transparent;
+}
+.button__bg:hover {
+  background: transparent;
+  /* border-style: solid;
+  border-image-slice: 1;
+  border-width: 2px;
+  border-image-source: var(--blue-gradient); */
+  border-color: var(--secindary-color);
+}
+.blue-gradient__bg {
+  background: var(--blue-gradient);
+}
+.black-gradient__bg {
+  background: var(--black-gradient);
+}
+.card__bg {
+  background: var(--black-gradient-2);
+}
+.card__bg:hover {
+  background: var(--gray-gradient);
+}
+
+.black-gradient-2__bg {
+  background: var(--black-gradient-2);
+}
+
+.gray-gradient__bg {
+  background: var(--gray-gradient);
+}
+
+.image__bg {
+  background: rgba(9, 151, 124, 0.1);
+}
+
+.description {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
 }
