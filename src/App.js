@@ -8,14 +8,16 @@ import Footer from "./components/Footer";
 function App() {
   return (
     <main className="bg-primary w-full min-h-screen h-full text-white font-poppins">
-      <section className="fixed w-full gray-gradient__bg px-6 z-20">
+      <header className="fixed w-full gray-gradient__bg px-6 z-20">
         <NavBar />
-      </section>
+      </header>
       <section className="pt-20 px-6">
         <CarouselComponet />
         <BidCardSection />
-        <Footer />
       </section>
+      <footer className="px-6">
+        <Footer />
+      </footer>
     </main>
   );
 }

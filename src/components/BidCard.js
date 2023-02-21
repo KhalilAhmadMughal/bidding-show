@@ -16,7 +16,7 @@ const BidCard = (props) => {
   };
 
   return (
-    <div className="mx-auto flex flex-col w-[350px] h-[386px] rounded-lg  card__bg hover:scale-105 hover:ease-in-out hover:duration-500">
+    <div className="mx-auto flex flex-col w-[320px] h-[386px] rounded-lg  card__bg hover:scale-105 hover:ease-in-out hover:duration-500">
       <div className="w-full h-[40%] rounded-lg ">
         <img
           className="h-full w-full rounded-lg"

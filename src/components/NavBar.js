@@ -13,8 +13,7 @@ const NavBar = () => {
   const clickHandler = (event) => {
     if (event.currentTarget.id === "menu") {
       SetToggle((prev) => !prev);
-    }
-    if (event.currentTarget.id === "pc") {
+    } else if (event.currentTarget.id === "pc") {
       SetUserDetail((prev) => !prev);
     } else {
       SetUserDetailMobileView((prev) => !prev);
