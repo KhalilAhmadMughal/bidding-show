@@ -1,6 +1,6 @@
 import React from "react";
-// import BidCard from "./BidCard";
-import { productData } from "../constants/data";
+
+import { productData } from "../../constants/data";
 import BidCard from "./BidCard";
 
 const BidCardSection = () => {

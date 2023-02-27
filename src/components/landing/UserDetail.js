@@ -6,7 +6,7 @@ const UserDetail = (props) => {
   }
 
   return (
-    <div className="z-1 shadow-lg flex flex-col rounded-lg gray-gradient__bg p-4 w-[220px] h-[250px] justify-between">
+    <div className="z-1 shadow-lg flex flex-col rounded-lg bg-primary p-4 w-[220px] h-[250px] justify-between">
       <div className="flex justify-between items-center">
         <h2 className="capitalize font-semibold text-center">user details</h2>
         <div

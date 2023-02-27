@@ -49,8 +49,8 @@ export const productData = [
     price: 100,
     description:
       "product's description Lorem ipsum, dolor sit amet consectetur adipisicing elit. Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
-    raise: 158,
-    raised_by: "ali raza",
+    raise: 1000,
+    raised_by: "ali raza ali raza ali raza ali raza",
     raised_at: "16 feb 2023",
   },
   {
@@ -92,5 +92,20 @@ export const productData = [
     raise: 158,
     raised_by: "arslan",
     raised_at: "16 feb 2023",
+  },
+];
+
+export const adminNavs = [
+  {
+    id: "products",
+    title: "products",
+  },
+  {
+    id: "products",
+    title: "products",
+  },
+  {
+    id: "products",
+    title: "products",
   },
 ];

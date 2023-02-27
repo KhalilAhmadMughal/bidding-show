@@ -1,6 +1,6 @@
 import React from "react";
 import { Carousel } from "react-responsive-carousel";
-import { images } from "../constants/data";
+import { images } from "../../constants/data";
 
 const CarouselComponet = () => {
   return (

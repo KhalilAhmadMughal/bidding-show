@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { BiUserCircle, BiMenu, BiX } from "react-icons/bi";
 
-import { navLinks } from "../constants/data";
+import { navLinks } from "../../constants/data";
 import UserDetail from "./UserDetail";
 
 const NavBar = () => {
@@ -57,14 +57,23 @@ const NavBar = () => {
         id="menu"
         className="cursor-pointer hover:text-secondary sm:hidden"
       >
-        {!toggle ? <BiMenu size="32px" /> : <BiX size="32px" />}
+        {!toggle ? <BiMenu size="32px" /> : ""}
       </div>
 
       <div
-        className={`fixed left-0 top-0 p-4 w-[300px] rounded-lg border-r border-r-dimWhite min-h-screen gray-gradient__bg ${
-          toggle ? "block" : "hidden"
+        className={`${
+          toggle
+            ? "fixed right-0 top-0 p-4 w-[300px] rounded-lg border-r border-r-dimWhite min-h-screen gray-gradient__bg ease-in-out duration-700"
+            : "fixed right-[-100%]"
         } `}
       >
+        <div
+          onClick={clickHandler}
+          id="menu"
+          className="flex justify-end cursor-pointer hover:text-secondary mb-6"
+        >
+          {toggle ? <BiX size="32px" /> : ""}
+        </div>
         <div className="flex justify-between">
           <span className="border border-white p-1 cursor-pointer hover:text-secondary">
             logo
@@ -79,7 +88,7 @@ const NavBar = () => {
           <div
             className={`${
               userDetailMobileView ? "block" : "hidden"
-            } absolute top-14 right-9`}
+            } absolute top-24 right-9`}
           >
             <UserDetail hide={userDetailCross} id="mobile-user" />
           </div>
