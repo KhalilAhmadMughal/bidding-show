@@ -12,7 +12,7 @@ const ProductRow = (props) => {
 
   return (
     <tr className="text-gray-400 hover:bg-[#1a2128] cursor-pointer">
-      <td>{props.data.id}</td>
+      <td className="min-w-[40px]">{props.data.id}</td>
       <td className="h-[30px] w-[30px] sm:h-[40px] sm:w-[40px] md:h-[55px] md:w-[55px] lg:h-[70px] lg:w-[70px] pr-2">
         <img src={props.data.pic} className="rounded-sm" alt="" />
       </td>

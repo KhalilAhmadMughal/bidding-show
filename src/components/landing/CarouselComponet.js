@@ -1,18 +1,25 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Carousel } from "react-responsive-carousel";
-import { images } from "../../constants/data";
 
 const CarouselComponet = () => {
+  const [carouselImages, setCarouselImages] = useState([]);
+  useEffect(() => {
+    fetch("http://localhost:4000/carousel")
+      .then((res) => res.json())
+      .then((data) => {
+        setCarouselImages(data);
+      });
+  }, []);
   return (
     <Carousel infiniteLoop autoPlay showStatus={false}>
-      {images.map((currImage) => (
+      {carouselImages.map((currImage) => (
         <div
           className="w-full h-[250px] sm:h-[350px] md:h-[410px]"
           key={currImage.id}
         >
           <img
-            className="w-full h-full object-fill"
-            key={currImage.id + "-pic"}
+            className="w-full h-full object-cover"
+            key={currImage.id + "-" + currImage.type}
             src={currImage.pic}
             alt=""
           />

@@ -1,26 +1,24 @@
-import React, { useState } from "react";
-import { BiMenu, BiX } from "react-icons/bi";
+import React from "react";
+import { NavLink } from "react-router-dom";
 import { adminNavs } from "../../constants/data";
 
-const AdminNavbar = (props) => {
-  const [toggle, SetToggle] = useState(false);
-
-  const clickHandler = () => {
-    SetToggle(!toggle);
-    props.sidebarHandler();
-  };
+const AdminNavbar = () => {
   return (
-    <section className="w-full black-gradient-2__bg px-6 h-16 flex items-center justify-between ">
-      <span
-        onClick={clickHandler}
-        className="hover:text-secondary cursor-pointer"
-      >
-        {!toggle ? <BiMenu size="42" /> : <BiX size="42" />}
-      </span>
+    <section className="px-6 h-16 flex items-center justify-between ">
       <ul className="flex gap-4">
         {adminNavs.map((nav, index) => (
           <li className="capitalize" key={nav.id + "-" + index}>
-            {nav.title}
+            <NavLink
+              className={({ isActive }) =>
+                isActive
+                  ? "border-b-2 border-dashed border-secondary transition-all duration-300 text-secondary"
+                  : "hover:text-secondary"
+              }
+              onSelect={`border-2 border-white`}
+              to={nav.to}
+            >
+              {nav.title}
+            </NavLink>
           </li>
         ))}
       </ul>

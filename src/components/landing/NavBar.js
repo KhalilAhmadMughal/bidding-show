@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { useState } from "react";
 import { BiUserCircle, BiMenu, BiX } from "react-icons/bi";
 
@@ -33,6 +34,9 @@ const NavBar = () => {
       <span className="border border-white p-1 text-secondary">logo</span>
       <div className="gap-20 items-center hidden sm:flex">
         <ul className="flex gap-4">
+          <li>
+            <Link to="/admin">Admin</Link>
+          </li>
           {navLinks.map((nav) => (
             <li key={nav.id}>{nav.title}</li>
           ))}

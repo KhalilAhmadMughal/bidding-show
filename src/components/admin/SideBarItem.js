@@ -1,25 +1,15 @@
-import React, { useState } from "react";
-import { BiCard } from "react-icons/bi";
+import React from "react";
 
-const SideBarItem = () => {
-  const [itemStyle, SetItemStyle] = useState(false);
-
-  const clickHandler = () => {
-    SetItemStyle(!itemStyle);
-  };
+const SideBarItem = (props) => {
   return (
-    <li
-      onClick={clickHandler}
-      className={`flex items-center gap-4 ${
-        itemStyle
-          ? "border-2 border-secondary rounded-lg hover:text-secondary"
-          : ""
-      }`}
-    >
-      <BiCard size="28px" />
-
-      <span>Products</span>
-    </li>
+    <div className="w-[30px] h-[30px] flex items-center gap-2 m-2">
+      <img
+        className="w-full h-full object-fill"
+        src={props.icon}
+        alt={props.title}
+      />
+      <h3 className="capitalize">{props.title}</h3>
+    </div>
   );
 };
 

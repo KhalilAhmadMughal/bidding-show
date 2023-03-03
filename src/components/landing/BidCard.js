@@ -4,16 +4,17 @@ import CustomButton from "../custom/CustomButton";
 import { BiX } from "react-icons/bi";
 
 const BidCard = (props) => {
-  const [raiseForm, SetRaiseForm] = useState(false);
-  const [bidValue, SetBidValue] = useState(props.product.raise);
-  const [errorMessage, SetErrorMessage] = useState("");
-  const [errorStyle, SetErrorStyle] = useState("");
+  const [raiseForm, setRaiseForm] = useState(false);
+  const [bidValue, setBidValue] = useState(props.product.raise);
+  const [errorMessage, setErrorMessage] = useState("");
+  const [errorStyle, setErrorStyle] = useState("");
 
   const ref = React.useRef(null);
 
   const clickHandler = () => {
-    SetRaiseForm((prev) => !prev);
-    SetErrorMessage("");
+    setRaiseForm((prev) => !prev);
+    setErrorMessage("");
+    setErrorStyle("");
     ref.current.value = "";
   };
 
@@ -21,14 +22,15 @@ const BidCard = (props) => {
     event.preventDefault();
     const inputValue = event.target.bid.value;
     if (inputValue.trim().length === 0 || +inputValue === 0) {
-      SetErrorMessage("Can't be null or 0.");
-      SetErrorStyle("border-2 border-red-500");
+      setErrorMessage("Can't be empty!");
+      setErrorStyle("border-2 border-red-500");
     } else if (+inputValue <= props.product.raise) {
-      SetErrorMessage("Should be > previous raise.");
-      SetErrorStyle("border-2 border-red-500");
+      setErrorMessage("Bid should be > previous raise.");
+      setErrorStyle("border-2 border-red-500");
     } else {
-      SetBidValue(inputValue);
+      setBidValue(inputValue);
       event.target.bid.value = "";
+      clickHandler();
     }
   };
 
@@ -41,7 +43,6 @@ const BidCard = (props) => {
           alt=""
         />
       </div>
-      {/* <div className="my-2 mx-4 rounded-lg border border-gray-400"></div> */}
       <div className="px-4 mt-2 flex-col w-full">
         <div className=" flex justify-between items-center w-full">
           <h2 className="capitalize w-[83%] h-full text-ellipsis overflow-hidden whitespace-nowrap">
@@ -77,8 +78,8 @@ const BidCard = (props) => {
             <input
               type="number"
               onChange={() => {
-                SetErrorMessage("");
-                SetErrorStyle("");
+                setErrorMessage("");
+                setErrorStyle("");
               }}
               ref={ref}
               name="bid"
@@ -106,7 +107,9 @@ const BidCard = (props) => {
           onClick={clickHandler}
           id="raise"
           className={`${!raiseForm ? "block" : "hidden"} ${
-            bidValue === props.product.raise ? "block" : "hidden"
+            bidValue === props.product.raise
+              ? "block"
+              : "pointer-events-none opacity-20"
           }`}
         >
           <CustomButton>bid</CustomButton>

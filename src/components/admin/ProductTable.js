@@ -1,10 +1,9 @@
 import React, { useState } from "react";
-import { productData } from "../../constants/data";
 import ProductRow from "./ProductRow";
 import ProductEditPop from "./ProductEditPop";
 import ProductDeletePopup from "./ProductDeletePopup";
 
-const ProductTable = () => {
+const ProductTable = (props) => {
   const [editPopup, setEditPopup] = useState(false);
   const [deletePopup, setDeletePopup] = useState(false);
   const editPopupHandler = () => {
@@ -13,10 +12,21 @@ const ProductTable = () => {
   const deletePopupHandler = () => {
     setDeletePopup(!deletePopup);
   };
-  const headings = Object.keys(productData[0]);
+  const headings = [
+    "id",
+    "pic",
+    "title",
+    "price",
+    "description",
+    "raise",
+    "rasied by",
+    "at",
+    "actions",
+  ];
+
   return (
     <section>
-      <table className="table-auto w-full text-[8px] sm:text-[12px] md:text-lg border-y border-gray-600">
+      <table className="table-auto w-full h-full text-[8px] sm:text-[12px] md:text-[14px] lg:text-[16px] border-y border-gray-600">
         <thead className="black-gradient__bg">
           <tr>
             {headings.map((heading) => (
@@ -27,14 +37,12 @@ const ProductTable = () => {
                 {heading}
               </th>
             ))}
-            {/* <th className="uppercase">switch</th> */}
-            <th className="uppercase">actions</th>
           </tr>
         </thead>
         <tbody>
-          {productData.map((product) => (
+          {props.products.map((product) => (
             <ProductRow
-              key={product.id + "-row"}
+              key={product.id + "-" + product.title}
               data={product}
               editPopup={editPopupHandler}
               deletePopup={deletePopupHandler}
@@ -43,14 +51,14 @@ const ProductTable = () => {
         </tbody>
       </table>
       <div
-        className={`top-24 left-24 md:left-[70%] bg-popup rounded-lg h-[400px] w-[300px] ${
+        className={`top-24 left-24 md:left-[50%] bg-popup rounded-lg h-[400px] w-[300px] ${
           editPopup ? "fixed" : "hidden"
         }`}
       >
         <ProductEditPop editPopup={editPopupHandler} />
       </div>
       <div
-        className={`top-24 left-24 md:left-[70%] bg-popup rounded-lg h-[300px] w-[300px] ${
+        className={`top-24 left-24 md:left-[50%] bg-popup rounded-lg h-[180px] w-[300px] ${
           deletePopup ? "fixed" : "hidden"
         }`}
       >
