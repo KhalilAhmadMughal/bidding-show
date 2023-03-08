@@ -1,21 +1,15 @@
 import { bid, products } from "../assets/SVGs";
 
-export const navLinks = [
+export const homeNavs = [
   {
     id: "home",
     title: "Home",
+    to: "/",
   },
   {
-    id: "features",
-    title: "Features",
-  },
-  {
-    id: "product",
-    title: "Product",
-  },
-  {
-    id: "clients",
-    title: "Clients",
+    id: "admin",
+    title: "Admin",
+    to: "/admin",
   },
 ];
 

@@ -1,9 +1,9 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { useState } from "react";
 import { BiUserCircle, BiMenu, BiX } from "react-icons/bi";
 
-import { navLinks } from "../../constants/data";
+import { homeNavs } from "../../constants/data";
 import UserDetail from "./UserDetail";
 
 const NavBar = () => {
@@ -34,11 +34,19 @@ const NavBar = () => {
       <span className="border border-white p-1 text-secondary">logo</span>
       <div className="gap-20 items-center hidden sm:flex">
         <ul className="flex gap-4">
-          <li>
-            <Link to="/admin">Admin</Link>
-          </li>
-          {navLinks.map((nav) => (
-            <li key={nav.id}>{nav.title}</li>
+          {homeNavs.map((nav, index) => (
+            <li className="capitalize" key={nav.id + "-" + index}>
+              <NavLink
+                className={({ isActive }) =>
+                  isActive
+                    ? "border-b-2 border-dashed border-secondary transition-all duration-300 text-secondary hover:text-white"
+                    : "hover:text-secondary"
+                }
+                to={nav.to}
+              >
+                {nav.title}
+              </NavLink>
+            </li>
           ))}
         </ul>
         <div
@@ -98,9 +106,18 @@ const NavBar = () => {
           </div>
         </div>
         <ul className="flex flex-col mt-6">
-          {navLinks.map((nav) => (
-            <li className="border-b border-b-dimWhite  p-2" key={nav.id}>
-              {nav.title}
+          {homeNavs.map((nav, index) => (
+            <li className="capitalize" key={nav.id + "-" + index}>
+              <NavLink
+                className={({ isActive }) =>
+                  isActive
+                    ? "border-b-2 border-dashed border-secondary transition-all duration-300 text-secondary hover:text-white"
+                    : "hover:text-secondary"
+                }
+                to={nav.to}
+              >
+                {nav.title}
+              </NavLink>
             </li>
           ))}
         </ul>

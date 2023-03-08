@@ -4,7 +4,7 @@ import LandingPage from "./components/pages/LandingPage";
 import AdminLayout from "./components/layouts/AdminLayout";
 import NotFoundPage from "./components/pages/NotFoundPage";
 import ProductTable from "./components/admin/ProductTable";
-import AdminHome from "./components/pages/AdminHome";
+import Protected from "./components/routes/Protected";
 
 function App() {
   const [products, setProducts] = useState([]);
@@ -15,11 +15,12 @@ function App() {
         setProducts(data);
       });
   }, []);
+
   return (
     <Routes>
       <Route path="/" element={<LandingPage />} />
-      <Route path="admin" element={<AdminLayout />}>
-        <Route path="" element={<AdminHome />} />
+      <Route path="admin" element={<Protected Component={AdminLayout} />}>
+        <Route path="" element={<ProductTable products={products} />} />
         <Route path="products" element={<ProductTable products={products} />} />
         <Route path="bids" element={<h1>bids page yet to designed!</h1>} />
         <Route path="*" element={<NotFoundPage />} />
@@ -30,5 +31,3 @@ function App() {
 }
 
 export default App;
-
-// element={<AdminPage />}

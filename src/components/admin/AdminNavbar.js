@@ -14,7 +14,6 @@ const AdminNavbar = () => {
                   ? "border-b-2 border-dashed border-secondary transition-all duration-300 text-secondary"
                   : "hover:text-secondary"
               }
-              onSelect={`border-2 border-white`}
               to={nav.to}
             >
               {nav.title}

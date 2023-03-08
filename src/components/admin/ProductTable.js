@@ -50,18 +50,10 @@ const ProductTable = (props) => {
           ))}
         </tbody>
       </table>
-      <div
-        className={`top-24 left-24 md:left-[50%] bg-popup rounded-lg h-[400px] w-[300px] ${
-          editPopup ? "fixed" : "hidden"
-        }`}
-      >
+      <div className={`${editPopup ? "fixed" : "hidden"}`}>
         <ProductEditPop editPopup={editPopupHandler} />
       </div>
-      <div
-        className={`top-24 left-24 md:left-[50%] bg-popup rounded-lg h-[180px] w-[300px] ${
-          deletePopup ? "fixed" : "hidden"
-        }`}
-      >
+      <div className={`${deletePopup ? "fixed" : "hidden"}`}>
         <ProductDeletePopup deletePopup={deletePopupHandler} />
       </div>
     </section>

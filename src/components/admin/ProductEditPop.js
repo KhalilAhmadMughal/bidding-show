@@ -20,30 +20,32 @@ const ProductEditPop = (props) => {
   //     // console.log(pic);
   //   };
   return (
-    <section className="w-full h-full flex flex-col">
-      <header className="basis-[15%] flex items-center justify-between px-4 py-2 font-semibold">
-        <h2>Edit Product</h2>
-        <BiX
-          onClick={exitHandler}
-          size={28}
-          className="absolute -top-2 -right-2 border-2 rounded-full bg-slate-500 hover:bg-red-400"
-        />
-      </header>
-      <form className="flex-1 p-4 flex flex-col justify-between ">
-        <section className=" flex flex-col gap-4">
-          <div className="h-[60px] w-[60px] border-dashed border-2 ">
-            <img src={upload} className="h-full w-full object-fill" alt="" />
-            <input
-              type="file"
-              accept="image/*"
-              className="h-full w-full opacity-0 cursor-pointer z-10 relative top-[-102%]"
-            />
-          </div>
-          <InputField label={"title"} />
-          <InputField label={"description"} />
-        </section>
-        <CustomButton>update</CustomButton>
-      </form>
+    <section className="fixed top-0 w-full h-screen bg-[rgba(0,0,0,.8)] flex justify-center items-center">
+      <div className="flex flex-col relative bg-popup rounded-lg h-[400px] w-[300px]">
+        <header className="basis-[15%] flex items-center justify-between px-4 py-2 font-semibold">
+          <h2>Edit Product</h2>
+          <BiX
+            onClick={exitHandler}
+            size={28}
+            className="absolute -top-2 -right-2 border-2 rounded-full bg-slate-500 hover:bg-red-400"
+          />
+        </header>
+        <form className="flex-1 p-4 flex flex-col justify-between ">
+          <section className=" flex flex-col gap-4">
+            <div className="h-[60px] w-[60px] border-dashed border-2 ">
+              <img src={upload} className="h-full w-full object-fill" alt="" />
+              <input
+                type="file"
+                accept="image/*"
+                className="h-full w-full opacity-0 cursor-pointer z-10 relative top-[-102%]"
+              />
+            </div>
+            <InputField label={"title"} />
+            <InputField label={"description"} />
+          </section>
+          <CustomButton>update</CustomButton>
+        </form>
+      </div>
     </section>
   );
 };
