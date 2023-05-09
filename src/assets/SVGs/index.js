@@ -5,5 +5,6 @@ import products from "./products.svg";
 import desktop from "./desktop.svg";
 import laptop from "./laptop.svg";
 import document from "./document.svg";
+import logo from "./logo.svg";
 
-export { bid, chart, home, products, desktop, laptop, document };
+export { bid, chart, home, products, desktop, laptop, document, logo };

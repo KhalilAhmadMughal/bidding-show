@@ -23,9 +23,9 @@ const ProductDeletePopup = (props) => {
         </header>
         <p className="px-4">Do you want to delete this?</p>
 
-        <div className="flex px-4 gap-4 pb-4">
+        <div className="flex px-4 gap-4 pb-4 ">
           <div className="basis-[50%]">
-            <CustomButton>delete</CustomButton>
+            <CustomButton styles={"red"}>delete</CustomButton>
           </div>
           <div className="flex-1" onClick={exitHandler}>
             <CustomButton>cencle</CustomButton>

@@ -50,6 +50,11 @@
   border-image-source: var(--blue-gradient); */
   border-color: var(--secindary-color);
 }
+.button__bg.red:hover {
+  border-color: red;
+  background: transparent;
+  color: red;
+}
 .blue-gradient__bg {
   background: var(--blue-gradient);
 }
@@ -80,4 +85,8 @@
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
+}
+
+svg {
+  fill: white;
 }

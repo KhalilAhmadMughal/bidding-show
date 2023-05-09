@@ -1,8 +1,9 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import { useState } from "react";
 import { BiUserCircle, BiMenu, BiX } from "react-icons/bi";
 
+import { logo } from "../../assets/SVGs";
 import { homeNavs } from "../../constants/data";
 import UserDetail from "./UserDetail";
 
@@ -31,7 +32,11 @@ const NavBar = () => {
 
   return (
     <nav className="flex justify-between py-4 w-full">
-      <span className="border border-white p-1 text-secondary">logo</span>
+      <Link to={""}>
+        <div className="h-[35px] w-[100px]">
+          <img className="h-full w-full object-contain" src={logo} alt="logo" />
+        </div>
+      </Link>
       <div className="gap-20 items-center hidden sm:flex">
         <ul className="flex gap-4">
           {homeNavs.map((nav, index) => (
@@ -87,9 +92,15 @@ const NavBar = () => {
           {toggle ? <BiX size="32px" /> : ""}
         </div>
         <div className="flex justify-between">
-          <span className="border border-white p-1 cursor-pointer hover:text-secondary">
-            logo
-          </span>
+          <Link to={""}>
+            <div className="h-[35px] w-[100px]">
+              <img
+                className="h-full w-full object-contain"
+                src={logo}
+                alt="logo"
+              />
+            </div>
+          </Link>
           <div
             onClick={clickHandler}
             className="cursor-pointer hover:text-secondary"
@@ -105,7 +116,7 @@ const NavBar = () => {
             <UserDetail hide={userDetailCross} id="mobile-user" />
           </div>
         </div>
-        <ul className="flex flex-col mt-6">
+        <ul className="flex flex-col mt-6 gap-2">
           {homeNavs.map((nav, index) => (
             <li className="capitalize" key={nav.id + "-" + index}>
               <NavLink

@@ -5,6 +5,8 @@ import AdminLayout from "./components/layouts/AdminLayout";
 import NotFoundPage from "./components/pages/NotFoundPage";
 import ProductTable from "./components/admin/ProductTable";
 import Protected from "./components/routes/Protected";
+import LoginPage from "./components/pages/LoginPage";
+import LandingLayout from "./components/layouts/LandingLayout";
 
 function App() {
   const [products, setProducts] = useState([]);
@@ -18,7 +20,10 @@ function App() {
 
   return (
     <Routes>
-      <Route path="/" element={<LandingPage />} />
+      <Route path="/" element={<LandingLayout />}>
+        <Route path="" element={<LandingPage />} />
+        <Route path="login" element={<LoginPage />} />
+      </Route>
       <Route path="admin" element={<Protected Component={AdminLayout} />}>
         <Route path="" element={<ProductTable products={products} />} />
         <Route path="products" element={<ProductTable products={products} />} />
